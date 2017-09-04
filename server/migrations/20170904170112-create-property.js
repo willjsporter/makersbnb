@@ -24,7 +24,7 @@ module.exports = {
         type: Sequelize.FLOAT
       },
       dates: {
-        type: Sequelize.RANGE(DATE)
+        type: Sequelize.RANGE(Sequelize.DATE)
       },
       createdAt: {
         allowNull: false,
