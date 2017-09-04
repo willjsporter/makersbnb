@@ -1,0 +1,26 @@
+{
+  "name": "makersbnb",
+  "version": "1.0.0",
+  "description": "makersbnb",
+  "main": "index.js",
+  "dependencies": {
+    "pg": "^7.3.0",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^4.8.0",
+    "sequelize-cli": "^2.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/willjsporter/makersbnb.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/willjsporter/makersbnb/issues"
+  },
+  "homepage": "https://github.com/willjsporter/makersbnb#readme"
+}
