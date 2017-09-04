@@ -1,24 +1,24 @@
 {
   "development": {
     "username": "abitravers",
-    "password": 0000,
+    "password": "0000",
     "database": "makersbnb_dev",
     "host": "127.0.0.1",
-    "dialect": "postgress"
+    "dialect": "postgres"
   },
 
   "test": {
     "username": "abitravers",
-    "password": 0000,
+    "password": "0000",
     "database": "makersbnb_test",
     "host": "127.0.0.1",
-    "dialect": "postgress"
+    "dialect": "postgres"
   },
   "production": {
     "username": "abitravers",
-    "password": 0000,
+    "password": "0000",
     "database": "makersbnb_production",
     "host": "127.0.0.1",
-    "dialect": "postgress"
+    "dialect": "postgres"
   }
 }
