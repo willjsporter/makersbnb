@@ -1,0 +1,28 @@
+{
+  "name": "makersbnb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "^3.5.0",
+    "zombie": "^5.0.7",
+    "expect.js": "^0.3.1"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/willjsporter/makersbnb.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/willjsporter/makersbnb/issues"
+  },
+  "homepage": "https://github.com/willjsporter/makersbnb#readme"
+}
