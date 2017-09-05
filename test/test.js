@@ -10,29 +10,26 @@ describe('User visits signup page', function() {
   const browser = new Browser();
 
   before(function(done) {
-    browser.visit('/', done);
+    browser.visit('/firstpage', done);
   });
 
   describe('submits form', function() {
-
-    // before(function(done) {
-    //   browser
-    //     .fill('email',    'zombie@underworld.dead')
-    //     .fill('password', 'eat-the-living')
-    //     .pressButton('Sign Me Up!', done);
-    // });
 
     it('should be successful', function() {
       browser.assert.success();
     });
 
     it('should show text', function() {
-      browser.assert.text('body', "Hello World!");
+      browser.assert.text('body', "Legend BnB Firstpage Property List Add Property Welcome to Legend BnB Log in and open up the world: © Copyright 2017 The Legend Group");
     });
 
-    it('should have sign-in form on homepage', function(){
-      browser.assert.input('form input[name=text]', 'username')
-      browser.assert.input('form input[name=text]', 'username')
+    it('should have log-in form on firstpage', function(){
+      browser.assert.input('form input[name=text]', 'Username')
+      browser.assert.input('form input[password=text]', 'Password')
+    });
+
+    it('should redirect you to a sign up page through a button', function(){
+
     });
 
 
