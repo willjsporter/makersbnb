@@ -48,12 +48,12 @@ describe('Makersbnb app', function() {
   });
 
 
-  xdescribe('property list', function() {
+  describe('property list should load', function() {
     before(function(done) {
       browser.visit('/propertylist', done);
     });
 
-    it('should have a title of MakersBnb', function() {
+    it('property list should have a title of MakersBnb', function() {
       browser.assert.text('title', 'MakersBnB');
     });
 
@@ -71,7 +71,7 @@ describe('Makersbnb app', function() {
 
 
 
-  xdescribe('add property should add a property', function() {
+  describe('add property should add a property', function() {
 
     before(function(done) {
       browser.visit('/addproperty', function() {
@@ -87,7 +87,7 @@ describe('Makersbnb app', function() {
       browser.assert.text('title', 'MakersBnB');
     });
 
-    it('should have added the property to the list', function(){
+    xit('should have added the property to the list', function(){
       browser.assert.text('body', '123 Makers Academy St');
     });
 
