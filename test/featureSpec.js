@@ -19,29 +19,34 @@ describe('Makersbnb app', function() {
       it('should be successful', function() {
         browser.assert.success();
       });
+
       it('should show text', function() {
         browser.assert.text('body', "Legend BnB Firstpage Property List Add Property Welcome to Legend BnB Log in and open up the world: Username: Top Secrete Word: Would You Like to Sign up? © Copyright 2017 The Legend Group");
       });
+
       it('should have log-in form on homepage', function(done){
         browser.assert.element('form');
         browser.assert.element('form input[name=password]');
         browser.assert.element('form input[name=username]');
-        // browser.pressButton("Welcome Back.")
-        done();
+        // browser.pressButton("Welcome Back",)
+        // done();
       });
     });
+  });
 
-    describe('Log in', function() {
-    it("has a log in form which can be filled in", function() {
+  xdescribe('Log in', function() {
       before(function(done) {
         browser.visit('/', function(){
         browser.fill('username', 'Muffin')
         browser.fill('password', 'Secrete')
         browser.pressButton("Welcome Back!",done);
-        });
+      });
+
+      it("has a log in form which can be filled in", function() {
       });
     });
   });
+
 
   xdescribe('property list', function() {
     before(function(done) {
