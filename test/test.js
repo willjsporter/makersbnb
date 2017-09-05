@@ -20,17 +20,19 @@ describe('User visits signup page', function() {
     });
 
     it('should show text', function() {
-      browser.assert.text('body', "Legend BnB Firstpage Property List Add Property Welcome to Legend BnB Log in and open up the world: © Copyright 2017 The Legend Group");
+      browser.assert.text('body', "Legend BnB Firstpage Property List Add Property Welcome to Legend BnB Log in and open up the world: Username: Top Secrete Word: Would You Like to Sign up? © Copyright 2017 The Legend Group");
     });
 
     it('should have log-in form on firstpage', function(){
       browser.assert.input('form input[name=text]', 'Username')
       browser.assert.input('form input[password=text]', 'Password')
+      browser.pressButton("Welcome Back.")
     });
 
-    it('should redirect you to a sign up page through a button', function(){
-
-    });
+    // it('should redirect you to a sign up page through a button', function(){
+    //    browser.pressButton("Sign Up")
+    //    browser.assert.viewInBrowser('/signup')
+    // });
 
 
 
