@@ -8,7 +8,7 @@ describe('Makersbnb app', function() {
 
   const browser = new Browser();
 
-  describe('submits form', function() {
+  describe('homepage loads', function() {
     before(function(done) {
       browser.visit('/', done);
     });
@@ -29,18 +29,49 @@ describe('Makersbnb app', function() {
     });
   });
 
-  describe('submits form', function() {
+  describe('property list', function() {
     before(function(done) {
       browser.visit('/propertylist', done);
     });
 
-    it('should be successful', function() {
-      browser.assert.success();
+    it('should have a title of MakersBnb', function() {
+      browser.assert.text('title', 'MakersBnB');
     });
 
-    it('should have a list of properties', function() {
-      browser.assert.text('title', 'Property List');
-    })
+  });
+
+  describe('add property should load', function() {
+    before(function(done) {
+      browser.visit('/addproperty', done);
+    });
+
+    it('should have a title of MakersBnb', function() {
+      browser.assert.text('title', 'MakersBnB');
+    });
+  });
+
+
+
+  describe('add property should add a property', function() {
+
+    before(function(done) {
+      browser.visit('/addproperty', function() {
+        browser.fill('name', 'Makerz')
+        browser.fill('location', '123 Makers Academy St')
+        browser.fill('description', 'misery-land')
+        browser.fill('price', '£90 per night trololololol')
+        browser.pressButton('Add!',done);
+      });
+    });
+
+    it('should have property list on page', function(){
+      browser.assert.text('title', 'MakersBnB');
+    });
+
+    xit('should have added the property to the list', function(){
+      browser.assert.text('body', '123 Makers Academy St');
+    });
+
   });
 
 });

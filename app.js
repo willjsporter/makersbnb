@@ -13,3 +13,11 @@ app.get('/', function (req, res) {
 app.get('/propertylist', function (req, res) {
   res.render('propertylist');
 });
+
+app.get('/addproperty', function (req, res) {
+  res.render('addproperty');
+});
+
+app.post('/addproperty', function (req, res) {
+  res.redirect('propertylist');
+});
