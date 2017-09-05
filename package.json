@@ -7,6 +7,8 @@
     "test": "test"
   },
   "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.15.4",
     "pg": "^7.3.0",
     "pg-hstore": "^2.3.2",
     "sequelize": "^4.8.0",

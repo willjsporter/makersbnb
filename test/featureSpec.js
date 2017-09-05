@@ -39,7 +39,7 @@ describe('Makersbnb app', function() {
     });
 
     it('should have a list of properties', function() {
-      browser.assert.text('body', 'Property List');
+      browser.assert.text('title', 'Property List');
     })
   });
 
