@@ -11,6 +11,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/propertylist', function (req, res) {
+  this.properties = Property.findAll
   res.render('propertylist');
 });
 

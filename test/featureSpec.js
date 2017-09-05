@@ -1,4 +1,6 @@
 const Browser = require('zombie');
+var Property = require('../server/models/property.js');
+// '../server/models/property.js'
 
 // We're going to make requests to http://example.com/signup
 // Which will be routed to our test server localhost:3000
@@ -29,7 +31,7 @@ describe('Makersbnb app', function() {
     });
   });
 
-  describe('property list', function() {
+  xdescribe('property list', function() {
     before(function(done) {
       browser.visit('/propertylist', done);
     });
@@ -52,7 +54,7 @@ describe('Makersbnb app', function() {
 
 
 
-  describe('add property should add a property', function() {
+  xdescribe('add property should add a property', function() {
 
     before(function(done) {
       browser.visit('/addproperty', function() {
@@ -68,10 +70,22 @@ describe('Makersbnb app', function() {
       browser.assert.text('title', 'MakersBnB');
     });
 
-    xit('should have added the property to the list', function(){
+    it('should have added the property to the list', function(){
       browser.assert.text('body', '123 Makers Academy St');
     });
 
   });
 
+  describe('viewing properties', function() {
+
+    before(function(done) {
+      var prop1 = {name: 'Lakers', location: 'commercial street', description: 'basketball camp', price: '£89 per day'}
+      Property.create(prop1).then(property => {console.log('success')})
+    });
+
+    it('should create an instance of property', function() {
+      browser.visit('/propertylist', done);
+      browser.assert.text('body', 'commercial street');
+    });
+  });
 });
