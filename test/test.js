@@ -1,41 +1,3 @@
-// var assert = require('assert');
-// describe('Array', function() {
-//   describe('#indexOf()', function() {
-//     it('should return -1 when the value is not present', function() {
-//       assert.equal(-1, [1,2,3].indexOf(4));
-//     });
-//   });
-// });
-//
-// process.env.NODE_ENV = 'test';
-// var http = require("http");
-// var app = require('../app');
-// // use zombie.js as headless browser
-// var Browser = require('zombie');
-//
-// describe('contact page', function() {
-//   before(function() {
-//     this.server = http.createServer(app).listen(3000);
-//     // initialize the browser using the same port as the test application
-//     this.browser = new Browser({ site: 'http://localhost:3000' });
-//   });
-//
-//   // load the contact page
-//   // before(function(done) {
-//   //   this.browser.visit('/contact', done);
-//   // });
-//
-//   it('should show contact a form', function() {
-//     assert.ok(this.browser.success);
-//     assert.equal(this.browser.text, 'Hello World!');
-//     //assert.equal(this.browser.text('form label'), 'First NameLast NameEmailMessage');
-//   });
-//
-//   //it('should refuse empty submissions');
-//   // ...
-//
-// });
-
 
 const Browser = require('zombie');
 
@@ -48,35 +10,48 @@ describe('User visits signup page', function() {
   const browser = new Browser();
 
   before(function(done) {
-    browser.visit('/', done);
+    browser.visit('/firstpage', done);
   });
 
   describe('submits form', function() {
-
-    // before(function(done) {
-    //   browser
-    //     .fill('email',    'zombie@underworld.dead')
-    //     .fill('password', 'eat-the-living')
-    //     .pressButton('Sign Me Up!', done);
-    // });
 
     it('should be successful', function() {
       browser.assert.success();
     });
 
     it('should show text', function() {
-      browser.assert.text('body', "Hello World!");
+      browser.assert.text('body', "Legend BnB Firstpage Property List Add Property Welcome to Legend BnB Log in and open up the world: Username: Top Secrete Word: Would You Like to Sign up? © Copyright 2017 The Legend Group");
     });
 
-    it('should have sign-in form on homepage', function(){
-      browser.assert.input('form input[name=text]', 'username')
-      browser.assert.input('form input[name=text]', 'username')
+    it('should have log-in form on firstpage', function(done){
+      browser.assert.element('form');
+      browser.assert.element('form input[name=password]');
+      browser.assert.element('form input[name=username]');
+      // browser.pressButton("Welcome Back.")
+      done();
     });
-
-
-
-    // it('should see welcome page', function() {
-    //   browser.assert.text('title', 'Welcome To Brains Depot');
-    // });
   });
+
+describe('Log in', function() {
+
+it("has a log in form which can be filled in", function() {
+    before(function(done) {
+      browser.visit('/firstpage', function(){
+      browser.fill('username', 'Muffin')
+      browser.fill('password', 'Secrete')
+      browser.pressButton("Welcome Back!",done);
+      });
+    });
+  });
+  // it('Should display the user name on the property list page', function(){
+  //
+  // })
 });
+});
+
+
+
+    // it('should redirect you to a sign up page through a button', function(){
+    //    browser.pressButton("Sign Up")
+    //    browser.assert.viewInBrowser('/signup')
+    // });
