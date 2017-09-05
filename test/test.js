@@ -23,21 +23,35 @@ describe('User visits signup page', function() {
       browser.assert.text('body', "Legend BnB Firstpage Property List Add Property Welcome to Legend BnB Log in and open up the world: Username: Top Secrete Word: Would You Like to Sign up? © Copyright 2017 The Legend Group");
     });
 
-    it('should have log-in form on firstpage', function(){
-      browser.assert.input('form input[name=text]', 'Username')
-      browser.assert.input('form input[password=text]', 'Password')
-      browser.pressButton("Welcome Back.")
+    it('should have log-in form on firstpage', function(done){
+      browser.assert.element('form');
+      browser.assert.element('form input[name=password]');
+      browser.assert.element('form input[name=username]');
+      // browser.pressButton("Welcome Back.")
+      done();
     });
+  });
+
+describe('Log in', function() {
+
+it("has a log in form which can be filled in", function() {
+    before(function(done) {
+      browser.visit('/firstpage', function(){
+      browser.fill('username', 'Muffin')
+      browser.fill('password', 'Secrete')
+      browser.pressButton("Welcome Back!",done);
+      });
+    });
+  });
+  // it('Should display the user name on the property list page', function(){
+  //
+  // })
+});
+});
+
+
 
     // it('should redirect you to a sign up page through a button', function(){
     //    browser.pressButton("Sign Up")
     //    browser.assert.viewInBrowser('/signup')
     // });
-
-
-
-    // it('should see welcome page', function() {
-    //   browser.assert.text('title', 'Welcome To Brains Depot');
-    // });
-  });
-});
