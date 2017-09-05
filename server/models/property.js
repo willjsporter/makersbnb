@@ -1,6 +1,6 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
-  var Property = sequelize.define('Property', {
+  var Property = sequelize.define('property', {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,

@@ -1,6 +1,6 @@
 {
   "development": {
-    "username": "abitravers",
+    "username": "will",
     "password": "0000",
     "database": "makersbnb_dev1",
     "host": "127.0.0.1",
@@ -8,14 +8,14 @@
   },
 
   "test": {
-    "username": "abitravers",
+    "username": "will",
     "password": "0000",
     "database": "makersbnb_test",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "production": {
-    "username": "abitravers",
+    "username": "will",
     "password": "0000",
     "database": "makersbnb_production",
     "host": "127.0.0.1",
