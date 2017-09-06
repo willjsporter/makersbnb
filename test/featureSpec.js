@@ -12,7 +12,7 @@ describe('Makersbnb app', function() {
 
   describe('homepage', function() {
     before(function(done) {
-      browser.visit('/', done);
+      browser.visit('/firstpage', done);
     });
 
     describe('submits form', function() {
@@ -24,7 +24,7 @@ describe('Makersbnb app', function() {
         browser.assert.text('body', "Legend BnB Firstpage Property List Add Property Welcome to Legend BnB Log in and open up the world: Username: Top Secrete Word: Would You Like to Sign up? © Copyright 2017 The Legend Group");
       });
 
-      it('should have log-in form on homepage', function(done){
+      it('should have log-in form on homepage', function(){
         browser.assert.element('form');
         browser.assert.element('form input[name=password]');
         browser.assert.element('form input[name=username]');
