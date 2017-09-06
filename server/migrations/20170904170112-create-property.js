@@ -24,7 +24,7 @@ module.exports = {
         type: Sequelize.FLOAT
       },
       dates: {
-        type: Sequelize.RANGE(Sequelize.DATE)
+        type: Sequelize.RANGE
       },
       createdAt: {
         allowNull: false,
@@ -37,6 +37,6 @@ module.exports = {
     });
   },
   down: function(queryInterface, Sequelize) {
-    return queryInterface.dropTable('Properties');
+    return queryInterface.dropTable('properties');
   }
 };

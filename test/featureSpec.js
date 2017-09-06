@@ -1,6 +1,6 @@
 const Browser = require('zombie');
-var Property = require('../server/models/property.js');
-// '../server/models/property.js'
+var Property = require('../server/models/property').Property;
+var User = require('../server/models/property').User;
 
 // We're going to make requests to http://example.com/signup
 // Which will be routed to our test server localhost:3000
@@ -10,7 +10,7 @@ describe('Makersbnb app', function() {
 
   const browser = new Browser();
 
-  describe('homepage', function() {
+  xdescribe('homepage', function() {
     before(function(done) {
       browser.visit('/', done);
     });
@@ -48,7 +48,7 @@ describe('Makersbnb app', function() {
   });
 
 
-  describe('property list should load', function() {
+  xdescribe('property list should load', function() {
     before(function(done) {
       browser.visit('/propertylist', done);
     });
@@ -59,7 +59,7 @@ describe('Makersbnb app', function() {
 
   });
 
-  describe('add property should load', function() {
+  xdescribe('add property should load', function() {
     before(function(done) {
       browser.visit('/addproperty', done);
     });
@@ -71,7 +71,7 @@ describe('Makersbnb app', function() {
 
 
 
-  describe('add property should add a property', function() {
+  xdescribe('add property should add a property', function() {
 
     before(function(done) {
       browser.visit('/addproperty', function() {
@@ -96,8 +96,10 @@ describe('Makersbnb app', function() {
   describe('viewing properties', function() {
 
     before(function(done) {
-      var prop1 = {name: 'Lakers', location: 'commercial street', description: 'basketball camp', price: '£89 per day'}
-      Property.create(prop1).then(property => {console.log('success')})
+      return require('../server/models/user').sequelize.sync();
+      // var prop1 = {name: 'Lakers', location: 'commercial street', description: 'basketball camp', price: '£89 per day'}
+      // Property.create(prop1).then(property => {console.log('success')})
+      User.create({name: 'Liz', email: 'person@example.com', password: 'password'}).then(user => {console.log('success')})
     });
 
     it('should create an instance of property', function() {

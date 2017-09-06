@@ -1,14 +1,14 @@
 {
   "development": {
-    "username": "will",
+    "username": "lizziehard",
     "password": "0000",
-    "database": "makersbnb_dev1",
+    "database": "makersbnb_dev",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
 
   "test": {
-    "username": "will",
+    "username": "lizziehard",
     "password": "0000",
     "database": "makersbnb_test",
     "host": "127.0.0.1",

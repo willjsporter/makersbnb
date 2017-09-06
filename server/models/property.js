@@ -1,6 +1,9 @@
+var models = require ('../../server/models')
+
 'use strict';
+
 module.exports = function(sequelize, DataTypes) {
-  var Property = sequelize.define('property', {
+  const Property = sequelize.define('property', {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
