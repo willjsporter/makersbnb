@@ -21,7 +21,7 @@ describe('Makersbnb app', function() {
       });
 
       it('should show text', function() {
-        browser.assert.text('body', "Legend BnB Firstpage Property List Add Property Welcome to Legend BnB Log in and open up the world: Username: Top Secrete Word: Would You Like to Sign up? © Copyright 2017 The Legend Group");
+        browser.assert.text('h1', "Welcome to Legend BnB");
       });
 
       it('should have log-in form on homepage', function(){
