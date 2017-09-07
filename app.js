@@ -6,48 +6,27 @@ var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var app = express();
 var mongoose = require('mongoose');
-
-// Mongoose
+var user = require('./models/user');
+var property = require('./models/property');
 
 mongoose.connect('mongodb://localhost/makersbnb_test');
-
 app.set('view engine', 'ejs');
 app.set('views', './views');
 
-const PropertySchema = mongoose.Schema({
-   location: String,
-   description: String,
-   price: Number
-});
 
-const UserSchema = mongoose.Schema({
-   name: String,
-   password: Number,
-   properties: [PropertySchema]
-});
+
+
 
 const User = mongoose.model("user", UserSchema);
 const Property = mongoose.model("property", PropertySchema);
 
 app.use(bodyParser.json());
-
 app.use(bodyParser.urlencoded({ extended: true }));
 // form-urlencoded
-
 // for parsing multipart/form-data
 app.use(upload.array());
 app.use(express.static('public'));
 
-
-app.get('/', function(req, res){
-   if(req.session.page_views){
-      req.session.page_views++;
-      res.send("You visited this page " + req.session.page_views + " times");
-   } else {
-      req.session.page_views = 1;
-      res.send("Welcome to this page for the first time!");
-   }
-});
 
 
 app.get('/firstpage', function (req, res) {
@@ -63,7 +42,12 @@ app.post('/signup', function (req, res) {
   res.render('signup');
 });
 
-app.post('/signupcomplete')
+app.post('/signupcomplete', function (req, res) {
+  var newUser = User(req.body).save(function(err,data){
+    if (err) throw err;
+  });
+  res.redirect('/addproperty');
+});
 
 app.get('/addproperty', function (req, res) {
   res.render('addproperty');
