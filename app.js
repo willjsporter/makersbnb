@@ -13,9 +13,17 @@ mongoose.connect('mongodb://localhost/makersbnb_test');
 app.set('view engine', 'ejs');
 app.set('views', './views');
 
+const PropertySchema = mongoose.Schema({
+   location: String,
+   description: String,
+   price: Number
+});
 
-
-
+const UserSchema = mongoose.Schema({
+   name: String,
+   password: Number,
+   properties: [PropertySchema]
+});
 
 const User = mongoose.model("user", UserSchema);
 const Property = mongoose.model("property", PropertySchema);
