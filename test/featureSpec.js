@@ -87,22 +87,9 @@ describe('Makersbnb app', function() {
       browser.assert.text('title', 'MakersBnB');
     });
 
-    xit('should have added the property to the list', function(){
+    it('should have added the property to the list', function(){
       browser.assert.text('body', '123 Makers Academy St');
     });
 
-  });
-
-  describe('viewing properties', function() {
-
-    before(function(done) {
-      var prop1 = {name: 'Lakers', location: 'commercial street', description: 'basketball camp', price: '£89 per day'}
-      Property.create(prop1).then(property => {console.log('success')})
-    });
-
-    it('should create an instance of property', function() {
-      browser.visit('/propertylist', done);
-      browser.assert.text('body', 'commercial street');
-    });
   });
 });
