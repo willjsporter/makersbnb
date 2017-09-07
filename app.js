@@ -16,7 +16,7 @@ app.set('views', './views');
 
 const PropertySchema = mongoose.Schema({
    location: String,
-   desciption: String,
+   description: String,
    price: Number
 });
 
@@ -69,22 +69,37 @@ app.post('/addproperty', function (req, res) {
   res.render('addproperty');
 });
 
-app.post('/propertylist', function (req, res) {
+//will's stuff
+app.post('/addproperty', function (req, res) {
   // get data from view and add it to mongo db
   var newProperty = Property(req.body).save(function(err,data){
     if (err) throw err;
-    res.render('propertylist', {data: req.body});
-    // res.json(data);
   })
-  // res.render('propertylist', {data: req.body});
+  res.redirect('/propertylist');
 });
+//end of will
 
+//commented out by will
+
+// app.post('/propertylist', function (req, res) {
+//   // get data from view and add it to mongo db
+//   var newProperty = Property(req.body).save(function(err,data){
+//     if (err) throw err;
+//     res.render('propertylist', {data: req.body});
+//     // res.json(data);
+//   })
+//   // res.render('propertylist', {data: req.body});
+// });
+
+//end of will remove
 
 app.get('/propertylist', function (req, res) {
-  Todo.find({}), function(err, data){
+  Property.find({}, function(err, propAll){
+    console.log(propAll);
+    if (err) throw err;
+  res.render('propertylist', {'propAll': propAll});
+  });
 
-  }
-  res.render('propertylist');
 });
 
 app.listen(3000, function () {

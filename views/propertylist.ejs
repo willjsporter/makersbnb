@@ -9,9 +9,15 @@
 </head>
 <body>
 
-<p> name: <%= data.name %> </p>
-<p> location: <%= data.location %> </p>
-<p> description: <%= data.description %> </p>
-<p> price: <%= data.price %> </p>
+    <ol>
+      <!-- reverse order to show most recent first -->
+  <% propAll.reverse().forEach(function (house) { %>
+
+        <li><%= house.location %><br>
+        <%= house.description %><br>
+        <%= house.price %> </li><br>
+
+<% }) %>
+</ol>
 </body>
 </html>
