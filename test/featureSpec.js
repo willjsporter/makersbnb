@@ -57,7 +57,7 @@ describe('Makersbnb app', function() {
 
     });
 
-    describe('add property should load', function() {
+    xdescribe('add property should load', function() {
       before(function(done) {
         browser.visit('/addproperty', done);
       });
