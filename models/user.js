@@ -1,13 +1,13 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema
-var PropertySchema = require('./property')
-
+var propertySchema = require("./property").schema;
 
 const UserSchema = mongoose.Schema({
    username: String,
    email: String,
    password: String,
-   properties: [PropertySchema]
+   propertieslisted: [propertySchema],
+   propertiesbooked: [propertySchema]
 });
 
 const User = mongoose.model("user", UserSchema);

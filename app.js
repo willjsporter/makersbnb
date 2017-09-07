@@ -6,28 +6,28 @@ var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var app = express();
 var mongoose = require('mongoose');
-// var user = require('./models/user');
-// var property = require('./models/property');
+const User = require('./models/user');
+const Property = require('./models/property');
 
 mongoose.connect('mongodb://localhost/makersbnb_test');
 app.set('view engine', 'ejs');
 app.set('views', './views');
 
-const PropertySchema = mongoose.Schema({
-   location: String,
-   description: String,
-   price: Number
-});
-
-const UserSchema = mongoose.Schema({
-   username: String,
-   email: String,
-   password: String,
-   properties: [PropertySchema]
-});
-
-const User = mongoose.model("user", UserSchema);
-const Property = mongoose.model("property", PropertySchema);
+// const PropertySchema = mongoose.Schema({
+//    location: String,
+//    description: String,
+//    price: Number
+// });
+//
+// const UserSchema = mongoose.Schema({
+//    username: String,
+//    email: String,
+//    password: String,
+//    properties: [PropertySchema]
+// });
+//
+// const User = mongoose.model("user", UserSchema);
+// const Property = mongoose.model("property", PropertySchema);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -44,6 +44,7 @@ app.get('/firstpage', function (req, res) {
 
 app.post('/firstpage', function (req, res) {
   console.log(req.body)
+  theUser = req.body.username
   res.render('firstpage-success', {data: req.body});
 });
 
@@ -59,7 +60,18 @@ app.post('/signupcomplete', function (req, res) {
   res.redirect('/addproperty');
 });
 
+ //willstuff
+app.get('/blahblah', function (req, res) {
+  User.findOne({username:theUser},function(err, userdeets){
+  console.log(userdeets);
+  if (err) throw err;
+  res.render('blahblah', {'userdeets': userdeets});
+});
+});
+//end of willstuff
+
 app.get('/addproperty', function (req, res) {
+
   res.render('addproperty');
 });
 

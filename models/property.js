@@ -4,10 +4,8 @@ var Schema = mongoose.Schema
 
 const PropertySchema = mongoose.Schema({
    location: String,
-   description: Text,
+   description: String,
    price: Number
 });
 
-const Property = mongoose.model("property", PropertySchema);
-
-module.exports = Property;
+module.exports = mongoose.model("Property", PropertySchema);
