@@ -57,14 +57,15 @@ app.get('/firstpage', function (req, res) {
 app.post('/firstpage', function (req, res) {
   console.log(req.body)
   res.render('firstpage-success', {data: req.body});
-  // res.render('addproperty', {data: req.body});
 });
 
 app.post('/signup', function (req, res) {
   res.render('signup');
 });
 
-app.get('/addproperty', function (req, res) {
+app.post('/signupcomplete')
+
+app.post('/addproperty', function (req, res) {
   res.render('addproperty');
 });
 
