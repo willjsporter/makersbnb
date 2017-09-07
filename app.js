@@ -21,7 +21,7 @@ const PropertySchema = mongoose.Schema({
 
 const UserSchema = mongoose.Schema({
    name: String,
-   password: Number,
+   password: String,
    properties: [PropertySchema]
 });
 
