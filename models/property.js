@@ -4,7 +4,7 @@ var Schema = mongoose.Schema
 
 const PropertySchema = mongoose.Schema({
    location: String,
-   description: String,
+   description: Text,
    price: Number
 });
 

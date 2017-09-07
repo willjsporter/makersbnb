@@ -6,8 +6,8 @@ var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var app = express();
 var mongoose = require('mongoose');
-var user = require('./models/user');
-var property = require('./models/property');
+// var user = require('./models/user');
+// var property = require('./models/property');
 
 mongoose.connect('mongodb://localhost/makersbnb_test');
 app.set('view engine', 'ejs');
@@ -20,7 +20,8 @@ const PropertySchema = mongoose.Schema({
 });
 
 const UserSchema = mongoose.Schema({
-   name: String,
+   username: String,
+   email: String,
    password: String,
    properties: [PropertySchema]
 });
@@ -51,7 +52,8 @@ app.post('/signup', function (req, res) {
 });
 
 app.post('/signupcomplete', function (req, res) {
-  var newUser = User(req.body).save(function(err,data){
+  User(req.body).save(function(err,data){
+    console.log(data);
     if (err) throw err;
   });
   res.redirect('/addproperty');
@@ -63,7 +65,8 @@ app.get('/addproperty', function (req, res) {
 
 app.post('/addproperty', function (req, res) {
   // get data from view and add it to mongo db
-  var newProperty = Property(req.body).save(function(err,data){
+  Property(req.body).save(function(err,data){
+    console.log(data);
     if (err) throw err;
   })
   res.redirect('/propertylist');
