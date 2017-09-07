@@ -65,11 +65,10 @@ app.post('/signup', function (req, res) {
 
 app.post('/signupcomplete')
 
-app.post('/addproperty', function (req, res) {
+app.get('/addproperty', function (req, res) {
   res.render('addproperty');
 });
 
-//will's stuff
 app.post('/addproperty', function (req, res) {
   // get data from view and add it to mongo db
   var newProperty = Property(req.body).save(function(err,data){
@@ -77,21 +76,6 @@ app.post('/addproperty', function (req, res) {
   })
   res.redirect('/propertylist');
 });
-//end of will
-
-//commented out by will
-
-// app.post('/propertylist', function (req, res) {
-//   // get data from view and add it to mongo db
-//   var newProperty = Property(req.body).save(function(err,data){
-//     if (err) throw err;
-//     res.render('propertylist', {data: req.body});
-//     // res.json(data);
-//   })
-//   // res.render('propertylist', {data: req.body});
-// });
-
-//end of will remove
 
 app.get('/propertylist', function (req, res) {
   Property.find({}, function(err, propAll){
