@@ -20,5 +20,14 @@ describe('Makersbnb signup', function() {
         browser.assert.success();
       });
     });
+
+    describe('has a signup form', function() {
+      it('should have form attributes', function(){
+        browser.assert.elements('form');
+        browser.assert.element('form input[name=username]');
+        browser.assert.element('form input[name=email]');
+        browser.assert.element('form input[name=password]');
+      });
+    });
   });
 });

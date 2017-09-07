@@ -25,10 +25,9 @@ describe('Makersbnb app', function() {
       });
 
       it('should have log-in form on homepage', function(){
-        browser.assert.equal(this.browser.text('form login'), 'username password');
-        // browser.assert.element('form');
-        // browser.assert.element('form input[name=password]');
-        // browser.assert.element('form input[name=username]');
+        browser.assert.elements('form', 2);
+        browser.assert.element('form input[name=password]');
+        browser.assert.element('form input[name=username]');
       });
     });
   });

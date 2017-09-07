@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../views/partials/head %>
+</head>
+<body class="container">
+
+    <header>
+        <% include ../views/partials/header %>
+    </header>
+
+    <main>
+        <div class="jumbotron">
+            <h1>Welcome to Legend BnB </h1>
+            <p>Log in and open up the world:</p>
+        </div>
+
+
+<div class="jumbotron">
+   <form action = '/firstpage' id ='login' method = "POST" >
+       <label for="username"> Username:
+        <input type ="text" id = "username" name="username" value= "SnakeBite">
+        </label>
+        <label for="email"> Email:
+        <input type ="text" id = "password" name="email" value= "person@example.com">
+        </label>
+        <label for="password"> Password:
+        <input type ="text" id = "password" name="password" value= "shhhh">
+        </label>
+        <span>
+        <br>
+        <br>
+        <br>
+        <input type="submit" value = "Sign">
+      </span>
+    </form>
+</div>
+
+    </main>
+
+    <footer>
+        <% include ../views/partials/footer %>
+    </footer>
+
+</body>
+</html>
