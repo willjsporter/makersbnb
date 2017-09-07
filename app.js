@@ -29,17 +29,6 @@ const UserSchema = mongoose.Schema({
 const User = mongoose.model("user", UserSchema);
 const Property = mongoose.model("property", PropertySchema);
 
-//
-//  Mongoose end
-app.use(cookieParser());
-app.use(session({secret: 'anystringoftext',
-                saveUnitialized: true,
-                resave: true}));
-
-
-
-
-
 app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -71,9 +60,9 @@ app.post('/firstpage', function (req, res) {
   // res.render('addproperty', {data: req.body});
 });
 
-// app.get('/propertylist', function (req, res) {
-//   res.render('propertylist');
-// });
+app.post('/signup', function (req, res) {
+  res.render('signup');
+});
 
 app.get('/addproperty', function (req, res) {
   res.render('addproperty');
