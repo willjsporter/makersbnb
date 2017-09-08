@@ -24,7 +24,7 @@ describe('Makersbnb signup', function() {
     describe('has a signup form', function() {
       it('should have form attributes', function(){
         browser.assert.elements('form');
-        browser.assert.element('form input[name=username]');
+        browser.assert.input('form input[name=username]', 'SnakeBite');
         browser.assert.element('form input[name=email]');
         browser.assert.element('form input[name=password]');
       });

@@ -60,7 +60,13 @@ app.post('/signupcomplete', function (req, res) {
 });
 
 app.get('/addproperty', function (req, res) {
-  res.render('addproperty');
+  User.findOne({}, function(err, propAll){
+    console.log(propAll);
+    console.log(err);
+    if (err) throw err;
+   res.render('addproperty', {'propAll': propAll});
+ });
+  // res.render('addproperty');
 });
 
 app.post('/addproperty', function (req, res) {
