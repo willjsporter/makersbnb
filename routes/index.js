@@ -58,6 +58,18 @@ router.post('/addproperty', function (req, res) {
 });
 
 router.get('/propertylist', function (req, res) {
+  // if (typeof theUser !== 'undefined'){
+  //   Property.find({}, function(err, propAll){
+  //     console.log(propAll);
+  //     if (err) throw err;
+  //   res.render('propertylist', {'propAll': propAll});
+  // }
+  // else {
+  //   Property.find({}, function(err, propAll){
+  //     console.log(propAll);
+  //     if (err) throw err;
+  //   res.render('propertylist1', {'propAll': propAll});
+  //  };
   Property.find({}, function(err, propAll){
     console.log(propAll);
     if (err) throw err;
