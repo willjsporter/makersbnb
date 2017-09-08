@@ -67,27 +67,32 @@ app.post('/signupcomplete', function (req, res) {
     console.log(data);
     if (err) throw err;
   });
-  res.redirect('/addproperty');
+  res.redirect('/firstpage');
 });
 
  //willstuff
-app.get('/blahblah', function (req, res) {
-  User.findOne({username:theUser},function(err, userdeets){
-  console.log(userdeets);
-  if (err) throw err;
-  res.render('blahblah', {'userdeets': userdeets});
-});
-});
+// app.get('/blahblah', function (req, res) {
+//   User.findOne({username:theUser},function(err, userdeets){
+//   console.log(userdeets);
+//   if (err) throw err;
+//   res.render('blahblah', {'userdeets': userdeets});
+// });
+// });
 //end of willstuff
 
 app.get('/addproperty', function (req, res) {
-
-  res.render('addproperty');
+  var hands = null;
+   if (typeof theUser !== 'undefined'){
+     hands = theUser
+   res.render('addproperty', {'hands': hands});
+ } else {
+      res.render('login-to-add')
+    };
 });
 
 app.post('/addproperty', function (req, res) {
   // get data from view and add it to mongo db
-  Property(req.body).save(function(err,data){
+  Property(req.body).save(function(err, data){
     console.log(data);
     if (err) throw err;
   })
