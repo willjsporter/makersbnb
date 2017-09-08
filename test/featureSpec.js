@@ -1,20 +1,25 @@
 const Browser = require('zombie');
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/makersbnb_test');
 
 // We're going to make requests to http://example.com/signup
 // Which will be routed to our test server localhost:3000
 Browser.localhost('localhost', 3000);
 
 describe('Makersbnb app', function() {
-  // beforeEach(function(done){
-  //     mongoose.connection.collections.properties.drop(function(){
-  //         done();
-  //     });
+  // before(function (done) {
+  //   this.timeout(15000);
+  //   mongoose.connection.once('connected', () => {
+  //     mongoose.connection.db.dropDatabase();
+  //   });
+  // });
+
 
   const browser = new Browser();
 
-  xdescribe('homepage', function() {
+  describe('homepage', function() {
     before(function(done) {
-      browser.visit('/firstpage', done);
+      browser.visit('/', done);
     });
 
     describe('submits form', function() {
@@ -34,9 +39,9 @@ describe('Makersbnb app', function() {
     });
   });
 
-  xdescribe('Log in', function() {
+  describe('Log in', function() {
     before(function(done) {
-      browser.visit('/firstpage', function(){
+      browser.visit('/', function(){
         browser.fill('username', 'Muffin')
         browser.fill('password', 'Secrete')
         browser.pressButton("Login",done);
@@ -48,7 +53,7 @@ describe('Makersbnb app', function() {
     });;
   });
 
-  xdescribe('property list should load', function() {
+  describe('property list should load', function() {
     before(function(done) {
       browser.visit('/propertylist', done);
     });
@@ -59,7 +64,7 @@ describe('Makersbnb app', function() {
     });
   });
 
-  xdescribe('add property should load', function() {
+  describe('add property should load', function() {
     before(function(done) {
       browser.visit('/addproperty', done);
     });
@@ -84,7 +89,9 @@ describe('Makersbnb app', function() {
     });
 
     it('should have property list on page', function(){
-      browser.assert.text('header', 'Legend BnB Firstpage Property List Add Property');
+      // this.timeout(15000);
+      // setTimeout(done, 15000);
+      browser.assert.text('header', 'Legend BnB Homepage Property List Add Property');
     });
 
     it('should have added the property to the list', function(){
