@@ -13,21 +13,7 @@ mongoose.connect('mongodb://localhost/makersbnb_test');
 app.set('view engine', 'ejs');
 app.set('views', './views');
 
-// const PropertySchema = mongoose.Schema({
-//    location: String,
-//    description: String,
-//    price: Number
-// });
-//
-// const UserSchema = mongoose.Schema({
-//    username: String,
-//    email: String,
-//    password: String,
-//    properties: [PropertySchema]
-// });
-//
-// const User = mongoose.model("user", UserSchema);
-// const Property = mongoose.model("property", PropertySchema);
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -70,15 +56,6 @@ app.post('/signupcomplete', function (req, res) {
   res.redirect('/firstpage');
 });
 
- //willstuff
-// app.get('/blahblah', function (req, res) {
-//   User.findOne({username:theUser},function(err, userdeets){
-//   console.log(userdeets);
-//   if (err) throw err;
-//   res.render('blahblah', {'userdeets': userdeets});
-// });
-// });
-//end of willstuff
 
 app.get('/addproperty', function (req, res) {
   var hands = null;
