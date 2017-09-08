@@ -43,10 +43,20 @@ app.get('/firstpage', function (req, res) {
 });
 
 app.post('/firstpage', function (req, res) {
-  console.log(req.body)
-  theUser = req.body.username
-  res.render('firstpage-success', {data: req.body});
+ User.findOne({username: req.body.username, password: req.body.password}, function (err, userexist){
+   if (err) {
+     console.log(err);
+   };
+
+   if (!userexist) {
+     res.render('login-failure')
+   } else {
+     res.render('firstpage-success', {data: userexist})
+     theUser = userexist
+   };
 });
+});
+
 
 app.post('/signup', function (req, res) {
   res.render('signup');
