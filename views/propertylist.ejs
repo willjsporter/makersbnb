@@ -26,13 +26,23 @@
 
       <div class="jumbatron">
         <ol id=ol>
+          <%var counter=0%>
           <% propAll.reverse().forEach(function (house) { %>
 
-            <li><%= house.location %><br>
+              <li id="<%counter%>"><%= house.location %><br>
               <%= house.description %><br>
-              £<%=house.price%> per night</li><br>
-          <% }) %>
+              <%= house.startdate %><br>
+              <%= house.enddate %><br>
+              £<%=house.price%> per night
+              <%counter +=1 %>
+          <form action = '/bookproperty' method='post' >
+            <input type='hidden' value="<%= house.id%>" name="houseid">
+            <input type='submit' id = "<%counter%>" value = "Book <%=house.description%>">
+          </form>
+        </li><br>
+       <% }) %>
         </ol>
+
       </div>
     </main>
 

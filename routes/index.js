@@ -76,6 +76,13 @@ router.get('/propertylist', function (req, res) {
   res.render('propertylist', {'propAll': propAll});
   });
 
+
+});
+
+
+router.post('/bookproperty', function (req, res) {
+  bookingID = req.body.houseid
+  res.render('bookproperty');//, {'blah': blah});
 });
 
 module.exports = router;
