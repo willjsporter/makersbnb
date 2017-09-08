@@ -10,7 +10,9 @@
   </header>
 
     <main>
+
       <div class="jumbotron">
+        <h3> Welcome <%= theUser.username %> </h3>
         <h4> Would You Like to List a Property?</h4>
           <form action = '/addproperty' method = "get" >
             <input type='submit' name='addproperty' value ="Add Property">

@@ -13,9 +13,17 @@ router.get('/', function (req, res) {
 });
 
 router.post('/', function (req, res) {
-  console.log(req.body)
-  theUser = req.body.username
-  res.render('firstpage-success', {data: req.body});
+  User.findOne({username: req.body.username, password: req.body.password}, function (err, userexist){
+   if (err) {
+     console.log(err);
+   };
+   if (!userexist) {
+     res.render('login-failure')
+   } else {
+     res.render('firstpage-success', {data: userexist})
+     theUser = userexist
+   };
+});
 });
 
 router.post('/signup', function (req, res) {
@@ -27,11 +35,17 @@ router.post('/signupcomplete', function (req, res) {
     console.log(data);
     if (err) throw err;
   });
-  res.redirect('/addproperty');
+  res.redirect('/');
 });
 
 router.get('/addproperty', function (req, res) {
-  res.render('addproperty');
+  var hands = null;
+  if (typeof theUser !== 'undefined'){
+    hands = theUser
+    res.render('addproperty', {'hands': hands});
+  } else {
+     res.render('login-to-add')
+   };
 });
 
 router.post('/addproperty', function (req, res) {

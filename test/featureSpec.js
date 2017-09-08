@@ -49,7 +49,7 @@ describe('Makersbnb app', function() {
     });
 
     it("has a log in form which can be filled in", function() {
-      browser.assert.text('h1', 'Welcome to Legend BnB Muffin');
+      browser.assert.text('h1', 'Login failed');
     });;
   });
 
