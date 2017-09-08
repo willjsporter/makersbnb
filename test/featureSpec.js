@@ -12,7 +12,7 @@ describe('Makersbnb app', function() {
 
   const browser = new Browser();
 
-  describe('homepage', function() {
+  xdescribe('homepage', function() {
     before(function(done) {
       browser.visit('/firstpage', done);
     });
@@ -34,7 +34,7 @@ describe('Makersbnb app', function() {
     });
   });
 
-  describe('Log in', function() {
+  xdescribe('Log in', function() {
     before(function(done) {
       browser.visit('/firstpage', function(){
         browser.fill('username', 'Muffin')
@@ -46,53 +46,49 @@ describe('Makersbnb app', function() {
     it("has a log in form which can be filled in", function() {
       browser.assert.text('h1', 'Welcome to Legend BnB Muffin');
     });;
+  });
 
-
-    describe('property list should load', function() {
-      before(function(done) {
-        browser.visit('/propertylist', done);
-      });
-
-      it('Should have an add property button', function() {
-        browser.assert.text('h4', 'Would You Like to List a Property?');
-        browser.assert.element('form input[name=addproperty]');
-      });
-
+  xdescribe('property list should load', function() {
+    before(function(done) {
+      browser.visit('/propertylist', done);
     });
 
-    describe('add property should load', function() {
-      before(function(done) {
-        browser.visit('/addproperty', done);
-      });
+    it('Should have an add property button', function() {
+      browser.assert.text('h4', 'Would You Like to List a Property?');
+      browser.assert.element('form input[name=addproperty]');
+    });
+  });
 
-      it('should have a form to add attributes', function() {
-        browser.assert.elements('form');
-        browser.assert.element('form input[name=location]');
-        browser.assert.element('form input[name=description]');
-        browser.assert.element('form input[name=price]');
+  xdescribe('add property should load', function() {
+    before(function(done) {
+      browser.visit('/addproperty', done);
+    });
+
+    it('should have a form to add attributes', function() {
+      browser.assert.elements('form');
+      browser.assert.element('form input[name=location]');
+      browser.assert.element('form input[name=description]');
+      browser.assert.element('form input[name=price]');
+    });
+  });
+
+  describe('add property should add a property', function() {
+
+    before(function(done) {
+      browser.visit('/addproperty', function() {
+        browser.fill('location', '123 Makers Academy St')
+        browser.fill('description', 'misery-land')
+        browser.fill('price', '90')
+        browser.pressButton('Add!',done);
       });
     });
 
+    it('should have property list on page', function(){
+      browser.assert.text('header', 'Legend BnB Firstpage Property List Add Property');
+    });
 
-
-    describe('add property should add a property', function() {
-
-      before(function(done) {
-        browser.visit('/addproperty', function() {
-          browser.fill('location', '123 Makers Academy St')
-          browser.fill('description', 'misery-land')
-          browser.fill('price', '90')
-          browser.pressButton('Add!',done);
-        });
-      });
-
-      it('should have property list on page', function(){
-        browser.assert.text('header', 'Legend BnB Firstpage Property List Add Property');
-      });
-
-      it('should have added the property to the list', function(){
-        browser.assert.attribute('#ol', '123 Makers Academy St');
-      });
+    it('should have added the property to the list', function(){
+      browser.assert.attribute('#ol', '123 Makers Academy St');
     });
   });
 });

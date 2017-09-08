@@ -7,7 +7,7 @@ describe('Makersbnb signup', function() {
 
   const browser = new Browser();
 
-  describe('homepage', function() {
+  xdescribe('homepage', function() {
     before(function(done) {
       browser.visit('/firstpage', function() {
         browser.pressButton('YES!', done);
