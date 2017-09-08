@@ -89,8 +89,6 @@ describe('Makersbnb app', function() {
     });
 
     it('should have property list on page', function(){
-      // this.timeout(15000);
-      // setTimeout(done, 15000);
       browser.assert.text('header', 'Legend BnB Homepage Property List Add Property');
     });
 
