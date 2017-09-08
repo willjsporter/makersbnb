@@ -64,36 +64,42 @@ describe('Makersbnb app', function() {
     });
   });
 
-//   describe('add property should load', function() {
-//     before(function(done) {
-//         browser.visit('/addproperty', done);
-//     });
-//
-//     it('should have a form to add attributes', function() {
-//       browser.assert.elements('form');
-//       browser.assert.element('form input[name=location]');
-//       browser.assert.element('form input[name=description]');
-//       browser.assert.element('form input[name=price]');
-//     });
-//   });
-//
-//   describe('add property should add a property', function() {
-//
-//     before(function(done) {
-//       browser.visit('/addproperty', function() {
-//         browser.fill('location', '123 Makers Academy St')
-//         browser.fill('description', 'misery-land')
-//         browser.fill('price', '90')
-//         browser.pressButton('Add!',done);
-//       });
-//     });
-//
-//     it('should have property list on page', function(){
-//       browser.assert.text('header', 'Legend BnB Homepage Property List Add Property');
-//     });
-//
-//     it('should have added the property to the list', function(){
-//       browser.assert.attribute('#ol', '123 Makers Academy St');
-//     });
-//   });
-// });
+  describe('add property should load', function() {
+    before(function(done) {
+        browser.visit('http://localhost:3000/signup', function() {
+          browser.pressButton('Signup', function() {
+            browser.pressButton('Login', function() {
+              browser.visit('http://localhost:3000/addproperty', done);
+          });
+        });
+      });
+    });
+
+    it('should have a form to add attributes', function() {
+      browser.assert.elements('form');
+      browser.assert.element('form input[name=location]');
+      browser.assert.element('form input[name=description]');
+      browser.assert.element('form input[name=price]');
+    });
+
+    describe('add property should add a property', function() {
+
+      before(function(done) {
+        browser.visit('/addproperty', function() {
+          browser.fill('location', '123 Makers Academy St')
+          browser.fill('description', 'misery-land')
+          browser.fill('price', '90')
+          browser.pressButton('Add!',done);
+        });
+      });
+
+      it('should have property list on page', function(){
+        browser.assert.text('header', 'Legend BnB Homepage Property List Add Property');
+      });
+
+      it('should have added the property to the list', function(){
+        browser.assert.attribute('#ol', '123 Makers Academy St');
+      });
+    });
+  });
+});

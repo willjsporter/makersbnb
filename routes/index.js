@@ -26,7 +26,7 @@ router.post('/', function (req, res) {
 });
 });
 
-router.post('/signup', function (req, res) {
+router.get('/signup', function (req, res) {
   res.render('signup');
 });
 
