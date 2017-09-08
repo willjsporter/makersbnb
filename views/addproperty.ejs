@@ -1,18 +1,37 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <title>MakersBnB</title>
-  <!-- <link rel="stylesheet" href="css/styles.css?v=1.0"> -->
+  <% include ../views/partials/head %>
 </head>
-<body>
+<body class ="container">
 
-  <form action='/addproperty' method='post' id='form1'>
-    <!-- Name: <input type = 'text' name ='name'> -->
-    Location: <input type = 'text' name ='location'>
-    Description: <input type = 'text' name ='description'>
-    Price: <input type = 'text' name ='price'>
-    <input type = 'submit' value ='Add!'>
-  <!-- </form>
-  <button type="submit" form="form1" value='Submit'>Add!</button> -->
+  <header>
+      <% include ../views/partials/header %>
+  </header>
+
+  <main>
+    <div class="jumbotron">
+      <form action='/addproperty' method='post' id='form1'>
+          <label for="location"> Location:
+            <input type = 'text' name ='location'>
+          </label>
+          <label for="description"> Description:
+            <input type = 'text' name ='description'>
+          </label>
+          <label for="Price"> Price:
+            <input type = 'text' name ='price'>
+          </label>
+          <br>
+          <br>
+          <br>
+          <input type = 'submit' value ='Add!'>
+        </span>
+      </form>
+    </div>
+  </main>
+  <footer>
+      <% include ../views/partials/footer %>
+  </footer>
+
 </body>
 </html>

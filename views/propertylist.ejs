@@ -1,29 +1,36 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>MakersBnB</title>
-  <meta name="description" content="The HTML5 Herald">
-  <meta name="author" content="SitePoint">
-  <!-- <link rel="stylesheet" href="css/styles.css?v=1.0"> -->
+  <% include ../views/partials/head %>
 </head>
-<body>
+<body class="container">
 
-  <h4> Would You Like to List a Property?</h4>
+  <header>
+      <% include ../views/partials/header %>
+  </header>
 
- <form action = '/addproperty' method = "get" >
- <input type='submit' value ="Add property">
-  </form>
+    <main>
+      <div class="jumbotron">
+        <h4> Would You Like to List a Property?</h4>
+          <form action = '/addproperty' method = "get" >
+            <input type='submit' value ="Add property">
+          </form>
+        </div>
 
-    <ol>
-      <!-- reverse order to show most recent first -->
-  <% propAll.reverse().forEach(function (house) { %>
+      <div class="jumbatron">
+        <ol>
+          <% propAll.reverse().forEach(function (house) { %>
 
-        <li><%= house.location %><br>
-        <%= house.description %><br>
-        <%= house.price %> </li><br>
-
-<% }) %>
-</ol>
+            <li><%= house.location %><br>
+              <%= house.description %><br>
+              <%= house.price %> </li><br>
+          <% }) %>
+        </ol>
+      </div>
+    </main>
+    
+    <footer>
+        <% include ../views/partials/footer %>
+    </footer>
 </body>
 </html>
