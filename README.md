@@ -1,11 +1,13 @@
 Makersbnb
 ============
 
-An app written in Javascipt so that users are able to list and book properties for certain dates.
+An app written in Javascipt enabling users to list and book properties for certain dates.
 
 Set Up
 ----------
--npm install
+$ npm install
+$ mocha
+$ brew install mongodb
 
 User Stories
 -----------
