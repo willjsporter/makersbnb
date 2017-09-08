@@ -13,12 +13,12 @@
       <div class="jumbotron">
         <h4> Would You Like to List a Property?</h4>
           <form action = '/addproperty' method = "get" >
-            <input type='submit' value ="Add property">
+            <input type='submit' name='addproperty' value ="Add Property">
           </form>
         </div>
 
       <div class="jumbatron">
-        <ol>
+        <ol id=ol>
           <% propAll.reverse().forEach(function (house) { %>
 
             <li><%= house.location %><br>
@@ -28,7 +28,7 @@
         </ol>
       </div>
     </main>
-    
+
     <footer>
         <% include ../views/partials/footer %>
     </footer>

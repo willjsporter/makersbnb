@@ -1,12 +1,14 @@
 const Browser = require('zombie');
-// var Property = require('../server/models');
-// '../server/models/property.js'
 
 // We're going to make requests to http://example.com/signup
 // Which will be routed to our test server localhost:3000
 Browser.localhost('localhost', 3000);
 
 describe('Makersbnb app', function() {
+  // beforeEach(function(done){
+  //     mongoose.connection.collections.properties.drop(function(){
+  //         done();
+  //     });
 
   const browser = new Browser();
 
@@ -46,47 +48,50 @@ describe('Makersbnb app', function() {
     });;
 
 
-    xdescribe('property list should load', function() {
+    describe('property list should load', function() {
       before(function(done) {
         browser.visit('/propertylist', done);
       });
 
-      it('property list should have a title of MakersBnb', function() {
-        browser.assert.text('title', 'MakersBnB');
+      it('Should have an add property button', function() {
+        browser.assert.text('h4', 'Would You Like to List a Property?');
+        browser.assert.element('form input[name=addproperty]');
       });
 
     });
 
-    xdescribe('add property should load', function() {
+    describe('add property should load', function() {
       before(function(done) {
         browser.visit('/addproperty', done);
       });
 
-      it('should have a title of MakersBnb', function() {
-        browser.assert.text('title', 'MakersBnB');
+      it('should have a form to add attributes', function() {
+        browser.assert.elements('form');
+        browser.assert.element('form input[name=location]');
+        browser.assert.element('form input[name=description]');
+        browser.assert.element('form input[name=price]');
       });
     });
 
 
 
-    xdescribe('add property should add a property', function() {
+    describe('add property should add a property', function() {
 
       before(function(done) {
         browser.visit('/addproperty', function() {
-          browser.fill('name', 'Makerz')
           browser.fill('location', '123 Makers Academy St')
           browser.fill('description', 'misery-land')
-          browser.fill('price', '£90 per night trololololol')
+          browser.fill('price', '90')
           browser.pressButton('Add!',done);
         });
       });
 
       it('should have property list on page', function(){
-        browser.assert.text('title', 'MakersBnB');
+        browser.assert.text('header', 'Legend BnB Firstpage Property List Add Property');
       });
 
       it('should have added the property to the list', function(){
-        browser.assert.text('body', '123 Makers Academy St');
+        browser.assert.attribute('#ol', '123 Makers Academy St');
       });
     });
   });
