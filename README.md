@@ -5,9 +5,11 @@ An app written in Javascipt enabling users to list and book properties for certa
 
 Set Up
 ----------
+```
 $ npm install
 $ mocha
 $ brew install mongodb
+```
 
 User Stories
 -----------
