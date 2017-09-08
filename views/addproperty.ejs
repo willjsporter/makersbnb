@@ -11,6 +11,7 @@
       <% include ../views/partials/header %>
   </header>
 <div class="jumbotron">
+  <% if (theUser){%>
 <h3> Welcome <%= theUser.username %> </h3>
 </div>
 
