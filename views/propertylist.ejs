@@ -5,10 +5,15 @@
   <title>MakersBnB</title>
   <meta name="description" content="The HTML5 Herald">
   <meta name="author" content="SitePoint">
-  <!-- <link rel="stylesheet" href="css/styles.css?v=1.0"> -->
+  <% include ../views/partials/head %>
 </head>
 <body>
 
+  <header>
+      <% include ../views/partials/header %>
+  </header>
+
+<h3> Welcome <%= theUser.username %> </h3>
   <h4> Would You Like to List a Property?</h4>
 
  <form action = '/addproperty' method = "get" >
