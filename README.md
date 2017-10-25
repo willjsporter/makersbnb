@@ -1,9 +1,10 @@
 Makersbnb
 ============
 
-An website written in Javascipt enabling users to list and book properties for certain dates.
+A website written in Javascipt enabling users to list and book properties for certain dates.
 
 Written by Will Porter, Lizzie Hard, Abi Travers and Freddie Ofori
+
 
 Set Up
 ----------
@@ -21,6 +22,18 @@ Start the database - `$ mongod`
 Ensure the server is running - `$ nodemon app.js`
 
 Run the tests - `$ mocha`
+
+
+Technologies used
+-----------
+Code: JavaScript - written in Node.js;
+
+Testing: Mocha with Zombie;
+
+Databases: Mongo;
+
+Server: Express.
+
 
 User Stories
 -----------
