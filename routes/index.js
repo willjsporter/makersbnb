@@ -7,6 +7,7 @@ var Property = require('../models/property');
 
 mongoose.connect('mongodb://localhost/makersbnb_test');
 
+var theUser;
 
 router.get('/', function (req, res) {
   res.render('firstpage');
@@ -39,10 +40,10 @@ router.post('/signupcomplete', function (req, res) {
 });
 
 router.get('/addproperty', function (req, res) {
-  var hands = null;
+  var current_user = null;
   if (typeof theUser !== 'undefined'){
-    hands = theUser
-    res.render('addproperty', {'hands': hands});
+    current_user = theUser
+    res.render('addproperty', {'current_user': current_user});
   } else {
      res.render('login-to-add')
    };
