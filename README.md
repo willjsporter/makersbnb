@@ -7,7 +7,7 @@ Written by Will Porter, Lizzie Hard, Abi Travers and Freddie Ofori
 Set Up
 ----------
 ```
-$ git clone
+$ git clone https://github.com/willjsporter/makersbnb.git
 $ npm install
 $ brew install mongodb
 $ mongod
