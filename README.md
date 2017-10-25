@@ -2,6 +2,7 @@ Makersbnb
 ============
 
 An app written in Javascipt enabling users to list and book properties for certain dates.
+
 Written by Will Porter, Lizzie Hard, Abi Travers and Freddie Ofori
 
 Set Up
