@@ -16,7 +16,9 @@ $ mongod
 Running Tests
 ----------
 Start the database - `$ mongod`
+
 Ensure the server is running - `$ nodemon app.js`
+
 Run the tests - `$ mocha`
 
 User Stories
